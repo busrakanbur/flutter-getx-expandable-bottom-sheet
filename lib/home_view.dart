@@ -11,6 +11,11 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text('Expandable bottom')),
       body: ExpandableBottomSheet(
+          persistentFooter: Container(
+            height: 60,
+            color: Colors.red,
+            child: Center(child: Text('content')),
+          ),
           persistentHeader: Container(
             height: 40,
             color: Colors.blue,
@@ -18,7 +23,7 @@ class HomeView extends StatelessWidget {
           ),
           expandableContent: Container(
             height: 500,
-            color: Colors.deepOrange,
+            color: Colors.grey,
             child: Center(child: Text('content')),
           ),
           background: Container(
