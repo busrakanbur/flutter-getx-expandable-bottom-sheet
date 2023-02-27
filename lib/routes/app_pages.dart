@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import '../all_bindings.dart';
 import '../home_view.dart';
+import '../next_view.dart';
 
 part 'app_routes.dart';
 

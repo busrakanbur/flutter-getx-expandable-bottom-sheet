@@ -3,23 +3,27 @@ import 'package:flutter/material.dart';
 import 'package:flutter_expandable_bottom_sheet/home_controller.dart';
 import 'package:get/get.dart';
 
-class HomeView extends GetView<HomeController> {
-  HomeView({
+class NextView extends GetView<HomeController> {
+  NextView({
     super.key,
   });
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Expandable bottom')),
-      body: Container(
-        child: ExpandableBottomSheet(
-            key: controller.key,
-            enableToggle: true,
-            persistentFooter: Container(
-              height: 60,
-              color: Colors.red,
-              child: Row(
+      body: ExpandableBottomSheet(
+          key: controller.key,
+          enableToggle: true,
+          persistentFooter: Container(
+            height: 60,
+            color: Colors.red,
+            child: Stack(children: [
+              FloatingActionButton(
+                  child: Icon(Icons.arrow_right),
+                  onPressed: () {
+                    Get.toNamed('/nextscreen');
+                  }),
+              Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -49,17 +53,22 @@ class HomeView extends GetView<HomeController> {
                           color: Colors.white,
                         ))
                   ]),
-            ),
-            expandableContent: Container(
-              height: 200,
-              color: Color.fromARGB(255, 253, 253, 253),
-              child: Center(child: Text('content')),
-            ),
-            background: Container(
-              color: Color.fromARGB(255, 215, 215, 215),
-              child: Center(child: Text('background')),
-            )),
-      ),
+            ]),
+          ),
+          persistentHeader: Container(
+            height: 40,
+            color: Colors.blue,
+            child: Center(child: Text('header')),
+          ),
+          expandableContent: Container(
+            height: 500,
+            color: Color.fromARGB(255, 253, 253, 253),
+            child: Center(child: Text('content')),
+          ),
+          background: Container(
+            color: Color.fromARGB(255, 215, 215, 215),
+            child: Center(child: Text('background')),
+          )),
     );
   }
 }
