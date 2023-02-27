@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_expandable_bottom_sheet/all_bindings.dart';
+import 'package:flutter_expandable_bottom_sheet/home_controller.dart';
+import 'package:flutter_expandable_bottom_sheet/routes/app_pages.dart';
 import 'package:get/get.dart';
-
-import 'home_view.dart';
 
 void main() {
   runApp(const MyApp());
+  Get.put(HomeController());
 }
 
 class MyApp extends StatelessWidget {
@@ -22,7 +24,9 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: HomeView(),
+      getPages: AppPages.routes,
+      initialRoute: AppPages.initial,
+      initialBinding: AllBindings(),
     );
   }
 }
